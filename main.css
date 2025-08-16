@@ -5,16 +5,19 @@
     right: 0;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: 0;
     max-width: 2500px;
-    padding: 10px 20px;
+    padding: 15px 20px;
     background-color: black;
     height: 50px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 }
 
-.logo-item img {
+.logo-item{
+    position: relative;
+    right: 20px;
     display: flex;
+    
     height: 69px;
     width: 110px;
 }
@@ -33,9 +36,10 @@
 
 .icon_block, .profile {
     margin-left: 20px; 
-    color: white; 
+    color: rgb(255, 255, 255); 
 }
 .menu-block{
+    position: relative;
     padding: 16px;
     border-bottom: 1px;
 }
@@ -44,7 +48,7 @@ nav{
         display: flex;
         justify-content: center;
     }
-    a{
+    a{ 
         text-decoration: none;
         font-size: 18px;
         font-weight: 500;
@@ -52,3 +56,48 @@ nav{
         padding: 0 16px;
     }
 }
+h1{
+        position: relative;
+        top: 200px;
+        font-size: 25px;
+        font-weight: 700;
+        color: rgb(0, 0, 0);
+        text-align: center;
+        margin-top: 20px;
+}
+.cat-container {
+    display: flex;            /* Flexbox kullanarak yatay dizilim */
+    flex-wrap: wrap;         /* Alt satıra geçebilir */
+    justify-content: center;  /* Yatay ortala */
+    gap: 20px;               /* Resimler arası boşluk */
+}
+
+.cat-item {
+    display: flex;
+    justify-content: center;  /* Elemanların genişliği otomatik olarak ayarlanır */
+}
+
+.cat-item img {
+    width: 100%;
+    height: auto;            
+}
+
+
+
+#kirmizi-kupa {
+    width: 350px;
+    height: auto;  
+}
+#mor-kupa {
+    width: 350px;
+    height: auto;  
+}
+#sari-kupa {
+    width: 350px;
+    height: auto;  
+}
+#kahve-kupa {
+    width: 270px;
+    height: auto;
+}
+
