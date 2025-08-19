@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ürünler</title>
+    <link rel="stylesheet" href="main.css">
+    <script src="https://kit.fontawesome.com/3cf97d5bd1.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="Resimler/favicon-16x16.png" type="image/png">
+
+    <style>
+        .footer-block2 {
+            position: relative;
+            top: 150px;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        main {
+            margin-top: 120px;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .filter-buttons {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .filter-buttons button {
+            margin: 0 10px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: rgb(176, 156, 137);
+            color: rgb(0, 0, 0);
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .filter-buttons button.active {
+            background-color: rgb(176, 156, 137);
+        }
+
+        .products-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .product {
+            background-color: rgb(176, 156, 137);
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            width: 200px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .product img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .product h3 {
+            margin: 10px 0 5px 0;
+            font-size: 18px;
+        }
+
+        .product p {
+            margin: 0;
+            font-weight: bold;
+            color: #000000;
+        }
+
+        .urun-baslik-2 {
+            position: relative;
+            top: 1px;
+            left: 863px;
+            border-radius: 30px 20px 30px 20px;
+            text-align: center;
+            z-index: 2;
+            background-color: rgb(255, 255, 255);
+            display: inline-block;
+            padding: 5px 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="header-block">
+            <div class="logo-item">
+                <a href="index.html">
+                    <img src="Resimler/kupalogo.png" alt="logo">
+                </a>
+            </div>
+            <div class="search-block">
+                <input type="text" placeholder="    Ara">
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <div    >
+                    <a href="sepet.html"class="icon_block">
+                    <i class="fa-solid fa-basket-shopping"></i>
+                    </a>
+                </div>
+                <a href="profil.html" class="profile">
+                <i class="fa-regular fa-user"></i>
+                </a>
+
+                <div class="menu-block">
+                    <nav>
+                        <ul>
+                            <li>
+                                <a href="index.html">Ana Sayfa</a>
+                                <a href="hakkında.html">Hakkımızda</a>
+                                <a href="sosyal.html">Sosyal</a>
+                                <a href="iletisim.html">İletişim</a>
+                                <a href="urunler.html">Ürünler</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <h1 class="urun-baslik-2">Ürünlerimiz</h1>
+
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-filter="all">Tümü</button>
+            <button class="filter-btn" data-filter="renk">Renk</button>
+            <button class="filter-btn" data-filter="hayvan">Hayvan</button>
+            <button class="filter-btn" data-filter="ozel">Özel</button>
+        </div>
+
+        <div class="products-container">
+            <div class="product" data-category="renk">
+                <a href="urun1.html">
+                    <img src="Resimler/001RED-8oz-Cup-Red-scaled.webp" alt="Kırmızı Kupa"></a>
+                <h3>Kırmızı Kupa</h3>
+                <p>₺50</p>
+            </div>
+            <div class="product" data-category="renk">
+                <a href="urun8.html">
+                    <img src="Resimler/001EGR-8oz-Cup-Emerald-Green-scaled_1200x.webp" alt="Yeşil Kupa"></a>
+                <h3>Yeşil Kupa</h3>
+                <p>₺50</p>
+            </div>
+            <div class="product" data-category="renk">
+                <a href="urun7.html">
+                    <img src="Resimler/001YEL-8oz-Cup-Yellow-1-scaled_500x.webp" alt="Sarı Kupa"></a>
+                <h3>Sarı Kupa</h3>
+                <p>₺50</p>
+            </div>
+
+            <div class="product" data-category="hayvan">
+                <a href="urun3.html">
+                    <img src="Resimler/Streamline-Imagined-Sweetie-Cat-Mug_46b5269b-0204-443c-a816-2b2bda1fa101.d9102a88fcf4a01253cee02fefa1a7b4.avif" alt="Kedi Kupa"></a>
+                <h3>Kedi Kupa</h3>
+                <p>₺60</p>
+            </div>
+
+            <div class="product" data-category="Özel">
+                <a href="urun10.html">
+                    <img src="Resimler/kahvedesenli.avif" alt="Benekli Kupa"></a>
+                <h3>Benekli Kupa</h3>
+                <p>₺60</p>
+            </div>
+
+            <div class="product" data-category="renk">
+                <a href="urun4.html">
+                    <img src="Resimler/Harfield_products_006-scaled_500x.webp" alt="Mor Kupa"></a>
+                <h3>Mor Kupa</h3>
+                <p>₺70</p>
+            </div>
+            <div class="product" data-category="renk">
+                <a href="urun9.html">
+                    <img src="Resimler/001WHI-8oz-Cup-White-scaled_500x.webp" alt="Beyaz Kupa"></a>
+                <h3>Beyaz Kupa</h3>
+                <p>₺80</p>
+            </div>
+            <div class="product" data-category="ozel">
+                <a href="urun5.html">
+                    <img src="Resimler/51ZXbNB+gkL.jpg" alt="Özel Kupa "></a>
+                <h3>Ankur Kupa</h3>
+                <p>₺80</p>
+            </div>
+            <div class="product" data-category="renk">
+                <a href="urun6.html">
+                    <img src="Resimler/60dc3e3101ef7.webp" alt="Gri Kupa"></a>
+                <h3>Gri Kupa</h3>
+                <p>₺90</p>
+            </div>
+            <div class="product" data-category="renk">
+                <a href="urun2.html">
+                    <img src="Resimler/siyah-seramik-kupa.jpg" alt="Siyah Kupa"></a>
+                <h3>Siyah Kupa</h3>
+                <p>₺90</p>
+            </div>
+        </div>
+    </main>
+
+    
+   <script>
+    async function loadProducts() {
+        try {
+            const response = await fetch("http://localhost:5174/urunler");
+            const products = await response.json();
+
+            const container = document.getElementById("products-container");
+            container.innerHTML = "";
+
+            products.forEach(p => {
+                const div = document.createElement("div");
+                div.classList.add("product");
+                div.setAttribute("data-category", "renk");
+
+                div.innerHTML = `
+                    <a href="urun${p.id}.html">
+                        <img src="Resimler/kupalogo.png" alt="${p.isim}">
+                    </a>
+                    <h3>${p.isim}</h3>
+                    <p>₺${p.fiyat}</p>
+                `;
+                container.appendChild(div);
+            });
+        } catch (err) {
+            console.error("Ürünler alınamadı:", err);
+        }
+    }
+
+    loadProducts();
+
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    filterButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterButtons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const filter = btn.getAttribute('data-filter');
+            document.querySelectorAll('.product').forEach(p => {
+                if (filter === 'all' || p.dataset.category === filter) {
+                    p.style.display = 'block';
+                } else {
+                    p.style.display = 'none';
+                }
+            });
+        });
+    });
+</script>
+
+
+</body>
+<footer>
+    <div class="footer-block2">
+        <p>&copy; 2025 KupaLab. Tüm hakları saklıdır.</p>
+</footer>
+
+</html>

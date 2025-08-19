@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 
 <head>
     <meta charset="UTF-8">
@@ -17,27 +17,33 @@
     <header>
         <div class="header-block">
             <div class="logo-item">
-                <img src="Resimler/kupalogo.png" alt="logo">
+                <a href="index.html">
+                    <img src="Resimler/kupalogo.png" alt="logo"></a>
             </div>
             <div class="search-block">
                 <input type="text" placeholder="    Ara">
                 <i class="fa-solid fa-magnifying-glass"></i>
-                <div class="icon_block">
+
+                <div    >
+                    <a href="sepet.html"class="icon_block">
                     <i class="fa-solid fa-basket-shopping"></i>
+                    </a>
                 </div>
-                <div class="profile">
-                    <i class="fa-regular fa-user"></i>
-                </div>
+                <a href="profil.html" class="profile">
+                <i class="fa-regular fa-user"></i>
+                </a>
 
                 <div class="menu-block">
                     <nav>
                         <ul>
                             <li>
-                                <a href="">Ana Sayfa</a>
-                                <a href="">Hakkında</a>
-                                <a href="">Sosyal</a>
-                                <a href="">İletişim</a>
-                                <a href="">Ürünler</a>
+
+
+                                <a href="index.html">Ana Sayfa</a>
+                                <a href="hakkında.html">Hakkımızda</a>
+                                <a href="sosyal.html">Sosyal</a>
+                                <a href="iletisim.html">İletişim</a>
+                                <a href="urunler.html">Ürünler</a>
                             </li>
                         </ul>
 
@@ -50,23 +56,62 @@
 
     </header>
     <main>
-<section class="cat-block">
-    <div class="cat-item">
-        <img id="kirmizi-kupa" src="Resimler/001RED-8oz-Cup-Red-scaled.webp" alt="Kırmızı Kupa">
-    </div>
-    <div class="cat-item">
-        <img id="sari-kupa" src="Resimler/001YEL-8oz-Cup-Yellow-1-scaled_500x.webp" alt="Sarı Kupa">
-    </div>
-    <div class="cat-item">
-        <img id="mor-kupa" src="Resimler/Harfield_products_006-scaled_500x.webp" alt="Mor Kupa">
-    </div>
-    <div class="cat-item">
-        <img id="kahve-kupa" src="Resimler/kahvedesenli.avif" alt="Kahve Kupa">
-    </div>
-</section>
+        <h1 class="ana-baslik">ÜRÜNLERİMİZDEN BAZILARI</h1>
+        <section class="cat-block">
+
+            <div class="cat-kutu">
+                <div class="cat-item">
+                    <a href="urun1.html">
+                        <img id="kirmizi-kupa" src="Resimler/001RED-8oz-Cup-Red-scaled.webp" alt="Kırmızı Kupa">
+                    </a>
+                </div>
+                <div class="cat-item">
+                    <a href="urun7.html">
+                        <img id="sari-kupa" src="Resimler/001YEL-8oz-Cup-Yellow-1-scaled_500x.webp" alt="Sarı Kupa"></a>
+                </div>
+                <div class="cat-item">
+                    <a href="urun4.html">
+                        <img id="mor-kupa" src="Resimler/Harfield_products_006-scaled_500x.webp" alt="Mor Kupa"></a>
+                </div>
+                <div class="cat-item">
+                    <a href="urun10.html">
+                        <img id="kahve-kupa" src="Resimler/kahvedesenli.avif" alt="Kahve Kupa"></a>
+                </div>
+            </div>
+        </section>
+        <div class="video-kutusu">
+            <div class="video-baslik">
+                <h2 class="video-baslik">Nasıl Çalışıyoruz?</h2>
+            </div>
+
+            <iframe src="https://www.youtube.com/embed/pYw5zUyiS7M?si=13sXSqLouCJzYlvA" title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <script>
+            let lastScroll = 0;
+            const header = document.querySelector('.header-block');
+
+            window.addEventListener('scroll', () => {
+                const currentScroll = window.pageYOffset;
+                if (currentScroll > lastScroll) {
+                    header.style.top = "-70px";
+                } else {
+                    header.style.top = "0";
+                }
+                lastScroll = currentScroll;
+            });
+        </script>
 
 
     </main>
+    <footer>
+        <div class="footer-block">
+            <p>&copy; 2025 KupaLab. Tüm hakları saklıdır.</p>
+    </footer>
+
+
 
 </body>
 

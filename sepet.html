@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KupaLab</title>
+    <link rel="stylesheet" href="main.css">
+    <script src="https://kit.fontawesome.com/3cf97d5bd1.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="Resimler/favicon-16x16.png" type="image/png">
+
+    <style>
+        
+
+
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        th,
+        td {
+            padding: 12px;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+
+        tfoot td {
+            font-weight: bold;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            margin: 10px 5px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background: #333;
+            color: white;
+        }
+
+        .btn:hover {
+            background: #505050;
+        }
+
+        input.adet {
+            width: 40px;
+            text-align: center;
+        }
+
+        /* Sepet kısmını header altına hizalamak için */
+        main {
+            padding-top: 150px;
+        }
+
+        .sepet-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .sepet-container table {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-block">
+            <div class="logo-item">
+                <a href="index.html">
+                    <img src="Resimler/kupalogo.png" alt="logo"></a>
+            </div>
+            <div class="search-block">
+                <input type="text" placeholder="    Ara">
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <div>
+                    <a href="sepet.html" class="icon_block">
+                        <i class="fa-solid fa-basket-shopping"></i>
+                    </a>
+                </div>
+                <a href="profil.html" class="profile">
+                    <i class="fa-regular fa-user"></i>
+                </a>
+
+                <div class="menu-block">
+                    <nav>
+                        <ul>
+                            <li>
+                                <a href="index.html">Ana Sayfa</a>
+                                <a href="hakkında.html">Hakkımızda</a>
+                                <a href="sosyal.html">Sosyal</a>
+                                <a href="iletisim.html">İletişim</a>
+                                <a href="urunler.html">Ürünler</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="sepet-container">
+            
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Ürün</th>
+                        <th>Adet</th>
+                        <th>Fiyat (₺)</th>
+                        <th>İşlem</th>
+                    </tr>
+                </thead>
+                <tbody id="sepet-body">
+                     
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3">Toplam</td>
+                        <td id="toplam">0₺</td>
+                    </tr>
+                </tfoot>
+            </table>
+            <div style="text-align:center;">
+    <button class="btn" onclick="sepetiTemizle()">Sepeti Temizle</button>
+    <button class="btn" onclick="satinAl()" style="background:#28a745; margin-left:10px;">Satın Al</button>
+</div>
+
+        </div>
+    </main>
+
+    <script>
+        function sepeteEkle(urunAdi, fiyat) {
+            let sepet = JSON.parse(localStorage.getItem('sepet')) || [];
+            let urun = sepet.find(u => u.adi === urunAdi);
+            if (urun) {
+                urun.adet += 1;
+            } else {
+                sepet.push({ adi: urunAdi, fiyat: fiyat, adet: 1 });
+            }
+            localStorage.setItem('sepet', JSON.stringify(sepet));
+            sepetiGoster();
+        }
+
+        function sepetiGoster() {
+            const tbody = document.getElementById('sepet-body');
+            tbody.innerHTML = '';
+            let sepet = JSON.parse(localStorage.getItem('sepet')) || [];
+
+            sepet.forEach((urun, index) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${urun.adi}</td>
+                    <td><input type="number" class="adet" value="${urun.adet}" min="1" onchange="adetDegistir(${index}, this.value)"></td>
+                    <td class="fiyat">${urun.fiyat}</td>
+                    <td><button class="btn" onclick="urunSil(${index})">Sil</button></td>
+                `;
+                tbody.appendChild(row);
+            });
+
+            toplamHesapla();
+        }
+
+        function adetDegistir(index, yeniAdet) {
+            let sepet = JSON.parse(localStorage.getItem('sepet')) || [];
+            sepet[index].adet = parseInt(yeniAdet);
+            localStorage.setItem('sepet', JSON.stringify(sepet));
+            toplamHesapla();
+        }
+
+        function urunSil(index) {
+            let sepet = JSON.parse(localStorage.getItem('sepet')) || [];
+            sepet.splice(index, 1);
+            localStorage.setItem('sepet', JSON.stringify(sepet));
+            sepetiGoster();
+        }
+
+        function toplamHesapla() {
+            let toplam = 0;
+            let sepet = JSON.parse(localStorage.getItem('sepet')) || [];
+            sepet.forEach(urun => {
+                toplam += urun.fiyat * urun.adet;
+            });
+            document.getElementById('toplam').textContent = toplam + '₺';
+        }
+
+        function sepetiTemizle() {
+            localStorage.removeItem('sepet');
+            sepetiGoster();
+            alert('Sepet temizlendi!');
+        }
+
+        window.onload = sepetiGoster;
+    </script>
+    <script>
+      function satinAl() {
+    if (JSON.parse(localStorage.getItem('sepet'))?.length > 0) {
+        alert('Satın alma başarılı!');
+        localStorage.removeItem('sepet');
+        sepetiGoster();
+    } else {
+        alert('Sepetiniz boş!');
+    }
+}
+
+    </script>
+</body>
+</html>

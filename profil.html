@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profilim</title>
+    <link rel="stylesheet" href="main.css">
+    <script src="https://kit.fontawesome.com/3cf97d5bd1.js" crossorigin="anonymous"></script>
+
+
+</head>
+<header>
+        <div class="header-block">
+            <div class="logo-item">
+                <a href="index.html">
+                    <img src="Resimler/kupalogo.png" alt="logo"></a>
+            </div>
+            <div class="search-block">
+                <input type="text" placeholder="    Ara">
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <div    >
+                    <a href="sepet.html"class="icon_block">
+                    <i class="fa-solid fa-basket-shopping"></i>
+                    </a>
+                </div>
+                <a href="profil.html" class="profile">
+                <i class="fa-regular fa-user"></i>
+                </a>
+
+                <div class="menu-block">
+                    <nav>
+                        <ul>
+                            <li>
+
+
+                                <a href="index.html">Ana Sayfa</a>
+                                <a href="hakkında.html">Hakkımızda</a>
+                                <a href="sosyal.html">Sosyal</a>
+                                <a href="iletisim.html">İletişim</a>
+                                <a href="urunler.html">Ürünler</a>
+                            </li>
+                        </ul>
+
+                    </nav>
+
+                </div>
+
+            </div>
+        </div>
+
+    </header>
+
+
+
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  height: 100vh;
+  background: #f4f4f4;
+}
+
+.kutu {
+  background: white;
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 30px;       /* biraz daha büyük padding */
+  width: 400px;         /* daha geniş */
+  text-align: left;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+
+  position: relative;   /* sol üste yapıştırmak için */
+  top: 230px;            /* üstten boşluk */
+  left: 200px;           /* soldan boşluk */
+}
+
+.kutu p {
+  margin: 15px 0;       /* satırlar arası daha fazla boşluk */
+  font-size: 18px;      /* yazıları büyütmek için */
+}
+
+</style>
+
+
+
+    <main>
+  <main>
+  <div class="kutu">
+    <p><strong>İsim Soyisim:</strong> Mehmet Yıldırım</p>
+    <p><strong>Gmail:</strong> mehmet@example.com</p>
+    <p>
+      <strong>Şifre:</strong> 
+      <input type="password" id="sifre" value="12345678" readonly style="border:none; background:none; font-size:18px;">
+      <button onclick="sifreGosterGizle()" style="font-size:14px; cursor:pointer;">Göster</button>
+    </p>
+    <!-- Çıkış Yap Butonu -->
+    <p>
+      <button onclick="cikisYap()" style="padding:10px 20px; font-size:16px; cursor:pointer; margin-top:10px; background:#333; color:white; border:none; border-radius:5px;">Çıkış Yap</button>
+    </p>
+  </div>
+</main>
+
+<script>
+function sifreGosterGizle() {
+  var input = document.getElementById("sifre");
+  var btn = event.target;
+  
+  if (input.type === "password") {
+    input.type = "text";
+    btn.textContent = "Gizle";
+  } else {
+    input.type = "password";
+    btn.textContent = "Göster";
+  }
+}
+
+// Çıkış yap fonksiyonu
+function cikisYap() {
+  alert("Çıkış yapılıyor...");
+  // İstersen buraya yönlendirme ekleyebilirsin, örn:
+  window.location.href = "giris.html"; // giriş sayfasına yönlendir
+}
+</script>
+
+
+
+</html>
